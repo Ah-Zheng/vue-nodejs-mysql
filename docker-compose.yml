@@ -1,0 +1,35 @@
+version: "3.6"
+services:
+  web:
+    image: jerry092383/vue-nodejs-mysql
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:8080
+    volumes:
+      - .:/user/src/app
+
+  mysql_container:
+    image: mysql:latest
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci # 設定utf8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: qwe123
+      MYSQL_USER: jerry092383
+      MYSQL_PASSWORD: qwe123
+    ports:
+      - 3306:3306
+    volumes:
+      - .:/var/lib/mysql
+
+  adminer_container:
+    image: adminer:latest
+    restart: always
+    # environment:
+    #   ADMINER_DEFAULT_SERVER: mysql_container
+    #   ADMINER_DESIGN: galkaev
+    ports:
+      - 8081:8081
+    depends_on:
+      - mysql_container
