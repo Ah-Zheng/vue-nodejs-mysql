@@ -2,12 +2,12 @@
   "name": "vue-nodejs-docker",
   "version": "1.0.0",
   "description": "vue + nodejs + mysql + docker",
-  "main": "server.js",
+  "main": "app.js",
   "author": "Jerry092383 <jerry092383@mail.chungyo.net>",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
-    "mysql": "^2.18.1",
+    "mysql": "mysqljs/mysql",
     "nodemon": "^2.0.6"
   }
 }

@@ -3,4 +3,5 @@ WORKDIR /app
 COPY ./package*.json ./
 RUN yarn
 COPY . .
-CMD ["node", "server.js"]
+EXPOSE 3000
+CMD ["node", "app.js"]
