@@ -1,22 +1,15 @@
 const express = require('express');
 const app = express();
-// const conn = require('./server/database');
 
-// mysql
-const mysql = require('mysql');
-const conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'qwe123',
-    port: 3306
-});
-conn.connect((err => {
-    if (err) {
-        console.log('err :>> ', err);
-        return;
-    }
-    console.log('connected');
-}));
+/** Mysql */
+const conn = require('./database/database');
+// conn.connect((err => {
+//     if (err) {
+//         console.log('err :>> ', err);
+//         return;
+//     }
+//     console.log('connected');
+// }));
 
 app.use(express.static(`${__dirname}/public`));
 
